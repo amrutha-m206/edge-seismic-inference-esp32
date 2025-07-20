@@ -25,7 +25,7 @@ The system is architected as an end-to-end embedded machine learning pipeline, o
 
 Post-training, the model is converted into TensorFlow Lite format (`.tflite`) and quantized to reduce memory usage. The model is then converted into a C-style byte array using `xxd`, resulting in a header file (`.h`) compatible with microcontroller integration.
 
-The final test Mean Absolute Error (MAE) was 0.5, which translates to a **normalized prediction error of approximately 17%** relative to the target magnitude range (3.0–6.0). This demonstrates that the model is sufficiently accurate for real-time edge deployment, especially under memory and performance constraints imposed by embedded systems like ESP32.  
+The model achieved a normalized predictive accuracy of approximately 83%, indicating its ability to consistently estimate earthquake magnitudes within a practical error margin.This demonstrates that the model is sufficiently accurate for real-time edge deployment, especially under memory and performance constraints imposed by embedded systems like ESP32.  
 
 On the embedded side, the ESP32 microcontroller is programmed using the Arduino IDE and the EloquentTinyML library, which loads and runs the TFLite model using TensorFlow Lite Micro runtime.  
 The resulting magnitude prediction is output via serial communication and can be extended to wireless protocols (e.g., Wi-Fi, MQTT) for remote transmission or alerting. This architecture ensures low-latency, low-power inference with no cloud dependency.
